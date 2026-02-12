@@ -91,13 +91,25 @@ const music = document.getElementById('cartaMusic');
 
 function playMusic() {
     if (!music) return;
-    music.play().catch(error => {
-        console.log("Autoplay bloqueado. Esperando interacción del usuario.");
-        // Intentar reproducir en el primer clic del cuerpo si el autoplay falla
-        document.body.addEventListener('click', () => {
-            music.play();
-        }, { once: true });
-    });
+
+    // Función para intentar reproducir
+    const tryPlay = () => {
+        music.play().then(() => {
+            console.log("Música iniciada correctamente.");
+            // Si funciona, removemos los listeners
+            document.removeEventListener('click', tryPlay);
+            document.removeEventListener('touchstart', tryPlay);
+        }).catch(error => {
+            console.log("Esperando interacción para iniciar música...");
+        });
+    };
+
+    // Intentar reproducir inmediatamente (puede fallar en móvil)
+    tryPlay();
+
+    // Agregar listeners para cualquier interacción del usuario
+    document.addEventListener('click', tryPlay, { once: true });
+    document.addEventListener('touchstart', tryPlay, { once: true });
 }
 
 // Música y Slideshow

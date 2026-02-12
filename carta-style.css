@@ -94,9 +94,20 @@ p {
 }
 
 @media only screen and (max-width: 800px) {
+    .carta-wrapper {
+        flex-direction: column;
+        padding: 2rem;
+        justify-content: center;
+    }
+
+    .foto-container {
+        display: none;
+    }
+
     p {
-        font-size: 2.2rem;
-        line-height: 1.2;
+        font-size: 2rem;
+        line-height: 1.3;
+        text-align: center;
     }
 }
 
