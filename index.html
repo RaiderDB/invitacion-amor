@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://em-content.zobj.net/source/apple/391/red-heart_2764-fe0f.png" type="image/png">
+    <title>Para mi amor, Francisca</title>
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <meta name="description" content="Una invitación especial de San Valentín para Francisca Naranjo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Quiz Romántico -->
+    <div id="quizOverlay" class="quiz-overlay">
+        <div class="bg_heart" id="bgHeart"></div>
+        <div class="quiz-container">
+            <!-- Pantalla de bienvenida -->
+            <div id="quizWelcome" class="quiz-screen active">
+                <h1 class="quiz-title">Hola, Francisca <img
+                        src="https://em-content.zobj.net/source/apple/391/cherry-blossom_1f338.png" alt="🌸"
+                        class="emoji" style="width: 1em; height: 1em; vertical-align: -0.15em;"></h1>
+                <p class="quiz-subtitle">Tengo algo especial para ti...</p>
+                <p class="quiz-subtitle">Pero primero, responde este pequeño quiz</p>
+                <button id="startQuiz" class="quiz-btn quiz-btn-start">
+                    Empezar <img src="https://em-content.zobj.net/source/apple/391/sparkling-heart_1f496.png" alt="💖"
+                        class="emoji" style="width: 1.2em; height: 1.2em; vertical-align: -0.15em;">
+                </button>
+            </div>
+
+            <!-- Preguntas -->
+            <div id="quizQuestion" class="quiz-screen">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" id="quizProgressBar"></div>
+                </div>
+                <p class="quiz-question-number" id="quizQuestionNumber">Pregunta 1 de 5</p>
+                <h2 class="quiz-question-text" id="quizQuestionText"></h2>
+                <img id="quizGif" class="quiz-gif" src="" alt="" style="display: none;">
+                <p class="quiz-reaction" id="quizReaction"></p>
+                <div class="quiz-buttons">
+                    <button id="btnSi" class="quiz-btn quiz-btn-si">
+                        Sí <img src="https://em-content.zobj.net/source/apple/391/green-heart_1f49a.png" alt="💚"
+                            class="emoji" style="width: 1em; height: 1em; vertical-align: -0.15em;">
+                    </button>
+                    <button id="btnNo" class="quiz-btn quiz-btn-no">
+                        No <img src="https://em-content.zobj.net/source/apple/391/broken-heart_1f494.png" alt="💔"
+                            class="emoji" style="width: 1em; height: 1em; vertical-align: -0.15em;">
+                    </button>
+                </div>
+                <button id="btnSiguiente" class="quiz-btn quiz-btn-next" style="display: none;">
+                    Siguiente <img src="https://em-content.zobj.net/source/apple/391/right-arrow_27a1-fe0f.png" alt="➡️"
+                        class="emoji" style="width: 1em; height: 1em; vertical-align: -0.15em;">
+                </button>
+            </div>
+
+            <!-- Pantalla final del quiz -->
+            <div id="quizEnd" class="quiz-screen">
+                <h1 class="quiz-end-title" id="quizEndTitle"></h1>
+                <p class="quiz-end-message" id="quizEndMessage"></p>
+                <button id="continueToHeart" class="quiz-btn quiz-btn-start">
+                    Ver tu sorpresa <img src="https://em-content.zobj.net/source/apple/391/heart-with-ribbon_1f49d.png"
+                        alt="💝" class="emoji" style="width: 1.2em; height: 1.2em; vertical-align: -0.15em;">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra superior de navegación -->
+    <nav class="top-bar">
+        <a href="galeria.html" class="top-bar-link">
+            🌸 Frases
+        </a>
+        <a href="flores.html" class="top-bar-link">
+            🌺 Jardín
+        </a>
+        <a href="corazones.html" class="top-bar-link">
+            ❤️ Corazones
+        </a>
+        <a href="galaxia.html" class="top-bar-link">
+            🌌 Galaxia
+        </a>
+        <a href="carta.html" class="top-bar-link">
+            ✍️ Carta final
+        </a>
+    </nav>
+
+    <!-- Corazones flotantes de fondo -->
+    <div class="hearts-background" id="heartsBackground"></div>
+
+    <!-- Canvas de pétalos -->
+    <canvas id="petalsCanvas"></canvas>
+
+    <!-- Contenedor principal -->
+    <div class="bgoverlay">
+        <div class="valentine-container">
+            <!-- Corazón animado -->
+            <span class="heart-icon">
+                <span class="heart-icon2"></span>
+                <span class="click-text">Haz clic aquí <img
+                        src="https://em-content.zobj.net/source/apple/391/red-heart_2764-fe0f.png" alt="❤️"
+                        class="emoji" style="width: 1em; height: 1em; vertical-align: -0.15em;"></span>
+            </span>
+
+            <!-- Mensaje final -->
+            <div class="endtext">
+                <span class="close" title="Reiniciar">
+                    <i class="fa fa-times"></i>
+                </span>
+
+                <div class="message-content">
+                    <h1>Te amo, Francisca <img src="https://em-content.zobj.net/source/apple/391/two-hearts_1f495.png"
+                            alt="💕" class="emoji" style="width: 1em; height: 1em; vertical-align: -0.15em;"></h1>
+                    <h2>¿Quieres ser mi San Valentin?</h2>
+
+                    <div class="invitation-details">
+                        <div class="detail-box">
+                            <i class="fa fa-calendar"></i>
+                            <p><strong>Fecha:</strong> 14 de Febrero, 2026</p>
+                        </div>
+                        <div class="detail-box">
+                            <i class="fa fa-clock"></i>
+                            <p><strong>Hora:</strong> 19:00 hrs</p>
+                        </div>
+                        <div class="detail-box">
+                            <i class="fa fa-map-marker-alt"></i>
+                            <p><strong>Lugar:</strong> Un lugar especial para ti</p>
+                        </div>
+                    </div>
+
+                    <div class="love-message">
+                        <p>Cada momento contigo es un regalo. Tu sonrisa ilumina mi vida y tu amor me hace completo. No
+                            puedo esperar para celebrar este día especial contigo.</p>
+                    </div>
+
+                    <button class="accept-button" id="acceptButton">
+                        ¡Sí, acepto! <img src="https://em-content.zobj.net/source/apple/391/sparkling-heart_1f496.png"
+                            alt="💖" class="emoji" style="width: 1.2em; height: 1.2em; vertical-align: -0.15em;">
+                    </button>
+
+                    <div class="confirmation" id="confirmation">
+                        <h3>¡Me haces el más feliz! <img
+                                src="https://em-content.zobj.net/source/apple/391/smiling-face-with-heart-eyes_1f60d.png"
+                                alt="😍" class="emoji" style="width: 1em; height: 1em; vertical-align: -0.15em;"></h3>
+
+                    </div>
+
+                    <h3 class="signature">Con todo mi amor <img
+                            src="https://em-content.zobj.net/source/apple/391/two-hearts_1f495.png" alt="💕"
+                            class="emoji" style="width: 1em; height: 1em; vertical-align: -0.15em;"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source
+            src="https://www.dropbox.com/scl/fi/qfv28rqu6b36jwusao4x4/Love.MP3?rlkey=ptjd053374f028aa4jfcfrfxn&st=1j0j51eo&raw=1"
+            type="audio/mpeg">
+    </audio>
+    <script src="index.js"></script>
+</body>
+
+</html>

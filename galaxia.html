@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://em-content.zobj.net/source/apple/391/red-heart_2764-fe0f.png" type="image/png">
+    <title>Para mi amor - Galaxia de Amor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./galaxia-style.css">
+</head>
+
+<body>
+    <canvas id="c"></canvas>
+
+    <div class="player">
+        <button id="play">▶️</button>
+        <div class="progress" id="progress">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="time" id="time">0:00 / 0:00</div>
+    </div>
+
+    <div class="ui-layer">
+        <a href="index.html?skipQuiz=true" class="back-link">← Volver</a>
+    </div>
+
+    <audio id="audio" loop>
+        <source
+            src="https://www.dropbox.com/scl/fi/qfv28rqu6b36jwusao4x4/Love.MP3?rlkey=ptjd053374f028aa4jfcfrfxn&st=1j0j51eo&raw=1"
+            type="audio/mpeg">
+    </audio>
+
+    <!-- Librerías -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.148.0/build/three.min.js"></script>
+    <script src="./galaxia.js"></script>
+</body>
+
+</html>

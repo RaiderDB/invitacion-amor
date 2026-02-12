@@ -1,0 +1,155 @@
+/* Reseteo básico */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Canvas para las flores */
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* Detrás del texto */
+    cursor: crosshair;
+}
+
+/* Contenedor del mensaje (Lado Izquierdo) */
+.message-container {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    /* Ajustar para mover más a la izquierda */
+    transform: translateY(-50%);
+    z-index: 10;
+    max-width: 400px;
+    /* Ancho máximo del texto */
+    padding: 20px;
+    /* Fondo semi-transparente opcional para legibilidad */
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+    border-radius: 15px;
+    pointer-events: none;
+    /* Permitir clicks a través del texto para pintar flores */
+    user-select: none;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5em;
+    color: #ff4081;
+    /* Rosa fuerte */
+    margin: 0 0 15px 0;
+    text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.6);
+}
+
+.message-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.8em;
+    color: #333;
+    line-height: 1.4;
+    display: inline;
+    /* Para el cursor */
+    font-weight: 600;
+}
+
+/* Cursor parpadeante estilo máquina de escribir */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    background-color: #333;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+    height: 1.5em;
+    /* Altura del cursor igual al texto */
+    vertical-align: text-bottom;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* Botón de toggle (pausar renderizado) */
+.render-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.render-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* Enlace volver */
+.back-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 20;
+    text-decoration: none;
+    color: #555;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.back-link:hover {
+    background: #ff4081;
+    color: white;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .message-container {
+        left: 5%;
+        right: 5%;
+        /* Ocupar casi todo el ancho */
+        max-width: none;
+        top: 20%;
+        /* Mover más arriba en móvil */
+        transform: translateY(0);
+        text-align: center;
+    }
+
+    .title {
+        font-size: 2.8em;
+    }
+
+    .message-text {
+        font-size: 1.4em;
+    }
+}
