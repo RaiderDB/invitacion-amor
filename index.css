@@ -914,6 +914,26 @@ body {
         font-size: 1.2em;
         padding: 18px 30px;
     }
+
+    /* Ajuste para que el TopBar sea compacto en móvil */
+    .top-bar {
+        padding: 8px 10px;
+        gap: 8px;
+        flex-wrap: nowrap;
+        /* Forzar que intenten estar en una línea o se ajusten */
+        overflow-x: auto;
+        /* Permitir scroll horizontal si es muy pequeño el dispositivo */
+        justify-content: flex-start;
+        /* Alinear al inicio para el scroll */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .top-bar-link {
+        font-size: 0.8em;
+        padding: 6px 14px;
+        white-space: nowrap;
+        /* Evitar que el texto se rompa */
+    }
 }
 
 @media (max-width: 480px) {
@@ -943,6 +963,21 @@ body {
 
     .message-content {
         padding: 25px 15px;
+    }
+
+    /* TopBar súper compacto para pantallas pequeñas */
+    .top-bar {
+        padding: 5px 2px;
+        gap: 2px;
+        justify-content: center;
+    }
+
+    .top-bar-link {
+        font-size: 0.65rem;
+        padding: 4px 6px;
+        letter-spacing: -0.2px;
+        border-radius: 12px;
+        /* Menos redondeado para ahorrar espacio lateral */
     }
 }
 
